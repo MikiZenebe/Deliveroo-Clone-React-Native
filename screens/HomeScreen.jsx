@@ -8,6 +8,7 @@ import {
   UserIcon,
   MagnifyingGlassIcon,
 } from "react-native-heroicons/outline";
+import Catagories from "../components/Catagories";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -51,6 +52,7 @@ const HomeScreen = () => {
       {/* Body */}
       <ScrollView>
         {/* Catagory */}
+        <Catagories />
 
         {/* Featured Row */}
       </ScrollView>
