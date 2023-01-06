@@ -1,6 +1,5 @@
-import { View, Text, ScrollView } from "react-native";
-import React from "react";
-import CatagoryCard from "./CatagoryCard";
+import { ScrollView } from "react-native";
+import { CatagoryCard } from "../components/index";
 
 const Catagories = () => {
   return (
@@ -13,9 +12,30 @@ const Catagories = () => {
       showsHorizontalScrollIndicator={false}
     >
       {/* Catagory Card */}
-      <CatagoryCard imgUrl="https://links.papareact.com/wru" title="Test 1" />
-      <CatagoryCard imgUrl="https://links.papareact.com/wru" title="Test 2" />
-      <CatagoryCard imgUrl="https://links.papareact.com/wru" title="Test 3" />
+      <CatagoryCard
+        imgUrl="https://img.freepik.com/free-photo/front-view-burger-stand_141793-15542.jpg?size=626&ext=jpg"
+        title="Test 1"
+      />
+      <CatagoryCard
+        imgUrl="https://img.freepik.com/free-photo/front-view-burger-stand_141793-15542.jpg?size=626&ext=jpg"
+        title="Test 2"
+      />
+      <CatagoryCard
+        imgUrl="https://img.freepik.com/free-photo/front-view-burger-stand_141793-15542.jpg?size=626&ext=jpg"
+        title="Test 3"
+      />
+      <CatagoryCard
+        imgUrl="https://img.freepik.com/free-photo/front-view-burger-stand_141793-15542.jpg?size=626&ext=jpg"
+        title="Test 3"
+      />
+      <CatagoryCard
+        imgUrl="https://img.freepik.com/free-photo/front-view-burger-stand_141793-15542.jpg?size=626&ext=jpg"
+        title="Test 3"
+      />
+      <CatagoryCard
+        imgUrl="https://img.freepik.com/free-photo/front-view-burger-stand_141793-15542.jpg?size=626&ext=jpg"
+        title="Test 3"
+      />
     </ScrollView>
   );
 };

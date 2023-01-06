@@ -2,13 +2,17 @@ import { View, Text, Image, TextInput, ScrollView } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useLayoutEffect } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
+
+//Icons
 import {
   AdjustmentsVerticalIcon,
   ChevronDownIcon,
   UserIcon,
   MagnifyingGlassIcon,
 } from "react-native-heroicons/outline";
-import Catagories from "../components/Catagories";
+
+//Components
+import { Catagories, FeaturedRow } from "../components/index";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -55,6 +59,25 @@ const HomeScreen = () => {
         <Catagories />
 
         {/* Featured Row */}
+        <FeaturedRow
+          id="1"
+          title="Featured"
+          description="Paid placments for our partners"
+        />
+
+        {/* Tasty Discounts */}
+        <FeaturedRow
+          id="2"
+          title="Tasty Discounts"
+          description="Everyone's been enjoying these juicy discounts"
+        />
+
+        {/* Offers near you */}
+        <FeaturedRow
+          id="3"
+          title="Offers near you!"
+          description="Why not support your local restaurant tonight"
+        />
       </ScrollView>
     </SafeAreaView>
   );
