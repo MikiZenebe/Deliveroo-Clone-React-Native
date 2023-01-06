@@ -15,7 +15,7 @@ const HomeScreen = () => {
   //It's like useEffect
   useLayoutEffect(() => {
     navigation.setOptions({
-      headerShown: false,
+      headerShown: false, //Header is hidden
     });
   }, []);
 
