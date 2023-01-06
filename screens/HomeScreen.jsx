@@ -12,7 +12,8 @@ import {
 } from "react-native-heroicons/outline";
 
 //Components
-import { Catagories, FeaturedRow } from "../components/index";
+import { FeaturedRow } from "../components/index";
+import Catagories from "../components/Catagories";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
