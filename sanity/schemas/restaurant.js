@@ -8,7 +8,7 @@ export default defineType({
     {
       name: 'name',
       type: 'string',
-      title: 'Restaurnt name',
+      title: 'Restaurant name',
       validation: (Rule) => Rule.required(),
     },
 
