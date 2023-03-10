@@ -8,7 +8,7 @@ import {
   MagnifyingGlassIcon,
   AdjustmentsVerticalIcon,
 } from "react-native-heroicons/outline";
-import Catagories from "../components/Catagories";
+import { Catagories, FeaturedRow } from "../components";
 
 function HomeScreen() {
   const navigation = useNavigation(); //to access the nav object
@@ -66,6 +66,9 @@ function HomeScreen() {
         {/* Catagory */}
         <Catagories />
         {/* Featuerd Row */}
+        <FeaturedRow title="featured" desc="Best Burger" id="1" />
+        <FeaturedRow title="featured" desc="Best Burger" id="2" />
+        <FeaturedRow title="featured" desc="Best Burger" id="3" />
       </ScrollView>
     </SafeAreaView>
   );
