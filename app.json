@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "clone_two",
-    "slug": "clone_two",
+    "name": "Deliveroo",
+    "slug": "deliveroo",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -28,6 +28,11 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "eea38de3-721e-47a9-a887-d60181c44ec7"
+      }
     }
   }
 }
