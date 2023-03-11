@@ -66,9 +66,21 @@ function HomeScreen() {
         {/* Catagory */}
         <Catagories />
         {/* Featuerd Row */}
-        <FeaturedRow title="featured" desc="Best Burger" id="1" />
-        <FeaturedRow title="featured" desc="Best Burger" id="2" />
-        <FeaturedRow title="featured" desc="Best Burger" id="3" />
+        <FeaturedRow
+          title="Featured"
+          desc="Paid placemnt from our partners"
+          id="1"
+        />
+        <FeaturedRow
+          title="Tasty Discounts"
+          desc="Everyone's been enjoying these discounts"
+          id="2"
+        />
+        <FeaturedRow
+          title="Offers near you!"
+          desc="Why not support your local restaurant tonight!"
+          id="3"
+        />
       </ScrollView>
     </SafeAreaView>
   );
