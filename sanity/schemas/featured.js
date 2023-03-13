@@ -1,8 +1,8 @@
-import {defineField, defineType} from 'sanity'
+import {defineType} from 'sanity'
 
 export default defineType({
-  name: 'featuerd',
-  title: 'Featuerd',
+  name: 'featured',
+  title: 'Featured',
   type: 'document',
   fields: [
     {
