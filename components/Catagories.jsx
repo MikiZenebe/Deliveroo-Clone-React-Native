@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ScrollView, Text, View } from "react-native";
 import CatagoryCard from "./CatagoryCard";
+import sanity from "../sanity";
 
 function Catagories() {
+  const [catagories, setCatagories] = useState([]);
+
+  useEffect(() => {
+    sanity.fetch(`  *[_type == "category"]`).then((data) => {
+      setCatagories(data);
+    });
+  }, []);
   return (
     <ScrollView
       contentContainerStyle={{ paddingHorizontal: 15, paddingTop: 10 }}
@@ -10,34 +18,9 @@ function Catagories() {
       showsHorizontalScrollIndicator={false}
     >
       {/* Catagory Card */}
-      <CatagoryCard
-        imgUrl="https://img.freepik.com/free-photo/front-view-burger-stand_141793-15542.jpg?size=626&ext=jpg&ga=GA1.1.1248079255.1678479042&semt=popular"
-        title="Testing"
-      />
-      <CatagoryCard
-        imgUrl="https://img.freepik.com/free-photo/front-view-burger-stand_141793-15542.jpg?size=626&ext=jpg&ga=GA1.1.1248079255.1678479042&semt=popular"
-        title="Testing"
-      />
-      <CatagoryCard
-        imgUrl="https://img.freepik.com/free-photo/front-view-burger-stand_141793-15542.jpg?size=626&ext=jpg&ga=GA1.1.1248079255.1678479042&semt=popular"
-        title="Testing"
-      />
-      <CatagoryCard
-        imgUrl="https://img.freepik.com/free-photo/front-view-burger-stand_141793-15542.jpg?size=626&ext=jpg&ga=GA1.1.1248079255.1678479042&semt=popular"
-        title="Testing"
-      />
-      <CatagoryCard
-        imgUrl="https://img.freepik.com/free-photo/front-view-burger-stand_141793-15542.jpg?size=626&ext=jpg&ga=GA1.1.1248079255.1678479042&semt=popular"
-        title="Testing"
-      />
-      <CatagoryCard
-        imgUrl="https://img.freepik.com/free-photo/front-view-burger-stand_141793-15542.jpg?size=626&ext=jpg&ga=GA1.1.1248079255.1678479042&semt=popular"
-        title="Testing"
-      />
-      <CatagoryCard
-        imgUrl="https://img.freepik.com/free-photo/front-view-burger-stand_141793-15542.jpg?size=626&ext=jpg&ga=GA1.1.1248079255.1678479042&semt=popular"
-        title="Testing"
-      />
+      {catagories.map((item) => (
+        <CatagoryCard key={item._id} imgUrl={item.image} title={item.name} />
+      ))}
     </ScrollView>
   );
 }

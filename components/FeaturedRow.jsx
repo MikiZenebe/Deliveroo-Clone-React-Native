@@ -1,8 +1,34 @@
+import { useEffect, useState } from "react";
 import { View, Text, ScrollView } from "react-native";
 import { ArrowRightIcon } from "react-native-heroicons/outline";
 import RestaurantCard from "./RestaurantCard";
+import client from "../sanity";
 
-const FeaturedRow = ({ title, desc, id }) => {
+const FeaturedRow = ({ id, title, desc }) => {
+  const [restaurants, setRestaurants] = useState([]);
+
+  useEffect(() => {
+    client
+      .fetch(
+        `
+        *[_type == "featured" && _id == $id] {
+          ...,
+          restaurants[]->{
+            ...,
+            dishes[]->,
+            type->{
+              name
+            }
+          },
+        }[0]
+    `,
+        { id }
+      )
+      .then((data) => {
+        setRestaurants(data.restaurants);
+      });
+  }, [id]);
+
   return (
     <View>
       <View className="mt-4 flex-row items-center justify-between px-4">
@@ -19,57 +45,21 @@ const FeaturedRow = ({ title, desc, id }) => {
         }}
         showsHorizontalScrollIndicator={false}
       >
-        <RestaurantCard
-          id={123}
-          imgUrl="https://img.freepik.com/free-photo/front-view-burger-stand_141793-15542.jpg?size=626&ext=jpg&ga=GA1.1.1248079255.1678479042&semt=popular"
-          title="Nandos"
-          rating={4.5}
-          genre="Asian"
-          address="Hawai"
-          short_desc="You will love it"
-          dishes={[]}
-          long={20}
-          lat={0}
-        />
-
-        <RestaurantCard
-          id={123}
-          imgUrl="https://img.freepik.com/free-photo/front-view-burger-stand_141793-15542.jpg?size=626&ext=jpg&ga=GA1.1.1248079255.1678479042&semt=popular"
-          title="Nandos"
-          rating={4.5}
-          genre="Asian"
-          address="Hawai"
-          short_desc="You will love it"
-          dishes={[]}
-          long={20}
-          lat={0}
-        />
-
-        <RestaurantCard
-          id={123}
-          imgUrl="https://img.freepik.com/free-photo/front-view-burger-stand_141793-15542.jpg?size=626&ext=jpg&ga=GA1.1.1248079255.1678479042&semt=popular"
-          title="Nandos"
-          rating={4.5}
-          genre="Asian"
-          address="Hawai"
-          short_desc="You will love it"
-          dishes={[]}
-          long={20}
-          lat={0}
-        />
-
-        <RestaurantCard
-          id={123}
-          imgUrl="https://img.freepik.com/free-photo/front-view-burger-stand_141793-15542.jpg?size=626&ext=jpg&ga=GA1.1.1248079255.1678479042&semt=popular"
-          title="Nandos"
-          rating={4.5}
-          genre="Asian"
-          address="Hawai"
-          short_desc="You will love it"
-          dishes={[]}
-          long={20}
-          lat={0}
-        />
+        {restaurants.map((item) => (
+          <RestaurantCard
+            key={item._id}
+            id={item._id}
+            imgUrl={item.image}
+            title={item.name}
+            rating={item.rating}
+            genre={item.type.name}
+            address={item.address}
+            short_desc={item.short_desc}
+            dishes={item.dishes}
+            long={item.long}
+            lat={item.lat}
+          />
+        ))}
       </ScrollView>
     </View>
   );
